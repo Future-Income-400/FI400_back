@@ -11,4 +11,9 @@ class GlassBottleApplicationTests {
         println("Hello World!")
     }
 
+    @Test
+    fun testGitPush(){
+        println("Push")
+    }
+
 }
