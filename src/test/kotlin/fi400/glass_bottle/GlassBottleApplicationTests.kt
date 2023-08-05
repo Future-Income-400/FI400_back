@@ -11,6 +11,7 @@ class GlassBottleApplicationTests {
         println("Hello World!")
         print("TEST")
         print("TEST")
+        print("TEST")
     }
 
 }
