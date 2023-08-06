@@ -14,4 +14,9 @@ class GlassBottleApplicationTests {
         print("TEST")
     }
 
+    @Test
+    fun testForHello(){
+        println("Hello!")
+    }
+
 }
