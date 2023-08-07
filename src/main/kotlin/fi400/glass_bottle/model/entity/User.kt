@@ -31,7 +31,7 @@ data class User(
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    var createdDate: LocalDateTime = LocalDateTime.now()
+    var createdDate: LocalDateTime = LocalDateTime.now(),
 
     //@OneToMany
     //val letterList : List<Letter>
