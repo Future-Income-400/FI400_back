@@ -10,10 +10,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "TBL_USER")
 @EntityListeners(AuditingEntityListener::class)
 data class User(
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id : Long,
 
-    @Column (name ="name")
+    @Column
     var name : String,
 
     @Column
@@ -24,14 +25,14 @@ data class User(
 
     @Column(name="oauth_provider")
     @Enumerated(EnumType.STRING)
-    val oAuthProvider: OAuthProvider,
+    var oAuthProvider: OAuthProvider,
 
     // accesstoken
     // refreshtoken
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    var createdDate: LocalDateTime = LocalDateTime.now(),
+    val createdDate: LocalDateTime = LocalDateTime.now(),
 
     //@OneToMany
     //val letterList : List<Letter>
