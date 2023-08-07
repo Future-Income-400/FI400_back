@@ -1,5 +1,6 @@
-package fi400.glass_bottle.model
+package fi400.glass_bottle.model.entity
 
+import fi400.glass_bottle.model.OAuthProvider
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
@@ -9,11 +10,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "TBL_USER")
 @EntityListeners(AuditingEntityListener::class)
 data class User(
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id : Long,
 
-    @Column
+    @Column (name ="name")
     var name : String,
 
     @Column
@@ -22,6 +22,7 @@ data class User(
     @Column
     var email : String,
 
+    @Column(name="oauth_provider")
     @Enumerated(EnumType.STRING)
     val oAuthProvider: OAuthProvider,
 
