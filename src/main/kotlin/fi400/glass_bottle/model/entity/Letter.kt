@@ -9,7 +9,6 @@ import java.time.LocalDateTime
 @Table(name = "TBL_LETTER")
 @EntityListeners(AuditingEntityListener::class)
 data class Letter(
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id : Long,
@@ -17,17 +16,18 @@ data class Letter(
     @Column
     var content : String,
 
-    @Column (name="content_summary")
+    @Column(name="content_summary")
     var contentSummary : String,
 
-    @Column (name="letter_status")
+    @Column(name="letter_status")
     @Enumerated(EnumType.STRING)
     var letterStatus : LetterStatus,
 
-//    @Column (name="user_id")
-//    var userId : Long,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    var user: User,
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    val createdDate : LocalDateTime = LocalDateTime.now()
+    val createdDate: LocalDateTime = LocalDateTime.now(),
 )

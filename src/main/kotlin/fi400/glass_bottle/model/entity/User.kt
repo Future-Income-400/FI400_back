@@ -10,31 +10,45 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Table(name = "TBL_USER")
 @EntityListeners(AuditingEntityListener::class)
 data class User(
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id : Long,
-
-    @Column
-    var name : String,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long,
 
     @Column
-    var password : String,
+    var name: String,
 
     @Column
-    var email : String,
+    var password: String,
+
+    @Column
+    var email: String,
+
+    @Column(name = "bottle_cnt")
+    var bottleCount: Int,
 
     @Column(name="oauth_provider")
     @Enumerated(EnumType.STRING)
     var oAuthProvider: OAuthProvider,
 
-    // accesstoken
-    // refreshtoken
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val letterList: MutableList<Letter> = mutableListOf(),
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
     val createdDate: LocalDateTime = LocalDateTime.now(),
-
-    //@OneToMany
-    //val letterList : List<Letter>
-
 )
+{
+    /**
+     * Letter List를 출력하는 내장 메소드
+     */
+    fun printLetters() {
+        letterList.forEach { letter ->
+            println("Letter ID: ${letter.id}")
+            println("Content: ${letter.content}")
+            println("Summary: ${letter.contentSummary}")
+            println("Status: ${letter.letterStatus}")
+            println("Created Date: ${letter.createdDate}")
+            println("-------------------------")
+        }
+    }
+}
