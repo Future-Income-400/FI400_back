@@ -5,6 +5,19 @@ import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDateTime
 
+/**
+ * Letter
+ * 편지 모델
+ * @property id
+ * @property content
+ * @property contentSummary
+ * @property letterStatus
+ * @property user
+ * @property createdDate
+ * @constructor Create empty Letter
+ * @since 2023.08.08
+ */
+
 @Entity
 @Table(name = "TBL_LETTER")
 @EntityListeners(AuditingEntityListener::class)
