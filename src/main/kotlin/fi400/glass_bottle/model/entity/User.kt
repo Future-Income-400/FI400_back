@@ -45,7 +45,7 @@ data class User(
     var oAuthProvider: OAuthProvider,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
-    val letterList: MutableList<Letter> = mutableListOf(),
+    val letterList: MutableList<Letter>? = mutableListOf(),
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -57,7 +57,7 @@ data class User(
      * void
      */
     fun printLetters() {
-        letterList.forEach { letter ->
+        letterList?.forEach { letter ->
             println("Letter ID: ${letter.id}")
             println("Content: ${letter.content}")
             println("Summary: ${letter.contentSummary}")
