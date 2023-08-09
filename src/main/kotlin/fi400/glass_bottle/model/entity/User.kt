@@ -1,11 +1,25 @@
 package fi400.glass_bottle.model.entity
 
-import fi400.glass_bottle.model.OAuthProvider
+import fi400.glass_bottle.oauth.OAuthProvider
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 
+/**
+ * User
+ * 사용자 모델
+ * @property id
+ * @property name
+ * @property password
+ * @property email
+ * @property bottleCount
+ * @property oAuthProvider
+ * @property letterList
+ * @property createdDate
+ * @constructor Create empty User
+ * @since 2023.08.08
+ */
 @Entity
 @Table(name = "TBL_USER")
 @EntityListeners(AuditingEntityListener::class)
@@ -39,7 +53,8 @@ data class User(
 )
 {
     /**
-     * Letter List를 출력하는 내장 메소드
+     * Print letters
+     * void
      */
     fun printLetters() {
         letterList?.forEach { letter ->
