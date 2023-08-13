@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @property expiresIn
  * @property refreshTokenExpiresIn
  * @property scope
- * @constructor Create empty Kakao tokens
  */
 data class KakaoTokens(
     @JsonProperty("access_token")

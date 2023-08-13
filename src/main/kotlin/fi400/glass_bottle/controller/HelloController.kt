@@ -1,5 +1,17 @@
 package fi400.glass_bottle.controller
 
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+
+@RestController
+@RequestMapping("/api")
 class HelloController {
-    // push 용 파일
+
+    @GetMapping("/hello")
+    fun helloWorld() : ResponseEntity<String> {
+        return ResponseEntity.ok("Hello World!")
+    }
 }
