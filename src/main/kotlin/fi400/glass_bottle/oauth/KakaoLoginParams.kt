@@ -24,7 +24,6 @@ data class KakaoLoginParams(
 
     /**
      * Make body
-     *
      * @return body LinkedMultiValueMap
      */
     override fun makeBody(): MultiValueMap<String, String> {
