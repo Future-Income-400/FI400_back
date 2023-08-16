@@ -26,30 +26,30 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    var id: Long? = null,
 
     @Column
-    var name: String,
+    var name: String? = null,
 
     @Column
-    var password: String,
+    var password: String? = null,
 
     @Column
-    var email: String,
+    var email: String? = null,
 
     @Column(name = "bottle_cnt")
-    var bottleCount: Int,
+    var bottleCount: Int = 0,
 
     @Column(name="oauth_provider")
     @Enumerated(EnumType.STRING)
     var oAuthProvider: OAuthProvider,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
-    val letterList: MutableList<Letter>? = mutableListOf(),
+    var letterList: MutableList<Letter>? = mutableListOf(),
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    val createdDate: LocalDateTime = LocalDateTime.now(),
+    var createdDate: LocalDateTime = LocalDateTime.now(),
 )
 {
     /**

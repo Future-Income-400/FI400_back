@@ -6,6 +6,6 @@ package fi400.glass_bottle.oauth
  */
 interface OAuthInfoResponse {
     val email: String
-    val nickname: String
+    val name: String
     val oAuthProvider: OAuthProvider
 }

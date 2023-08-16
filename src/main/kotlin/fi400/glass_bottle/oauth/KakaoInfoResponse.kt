@@ -21,14 +21,14 @@ data class KakaoInfoResponse(
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     data class KakaoProfile(
-        val nickname: String
+        val name: String
     )
 
     override val email: String
         get() = kakaoAccount.email
 
-    override val nickname: String
-        get() = kakaoAccount.profile.nickname
+    override val name: String
+        get() = kakaoAccount.profile.name
 
     override val oAuthProvider: OAuthProvider
         get() = OAuthProvider.KAKAO
