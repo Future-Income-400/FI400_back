@@ -29,7 +29,7 @@ data class User(
     var id: Long? = null,
 
     @Column
-    var name: String? = null,
+    var nickname: String? = null,
 
     @Column
     var password: String? = null,
