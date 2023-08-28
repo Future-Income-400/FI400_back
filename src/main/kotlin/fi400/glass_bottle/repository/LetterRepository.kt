@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface LetterRepository : JpaRepository<Letter, Long> {
-    fun findByUserId(user: User): List<Letter>
+    fun findByUserId(user: User): List<Letter> {
+        return emptyList()
+    }
 }

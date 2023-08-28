@@ -45,7 +45,6 @@ data class User(
     var oAuthProvider: OAuthProvider,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
-    @JoinColumn(name = "letter_list", insertable = false, updatable = false)
     var letterList: MutableList<Letter>? = mutableListOf(),
 
     @CreatedDate
