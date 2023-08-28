@@ -9,6 +9,14 @@ class GlassBottleApplicationTests {
     @Test
     fun contextLoads() {
         println("Hello World!")
+        print("TEST")
+        print("TEST")
+        print("TEST")
+    }
+
+    @Test
+    fun testForHello(){
+        println("Hello!")
     }
 
     @Test
