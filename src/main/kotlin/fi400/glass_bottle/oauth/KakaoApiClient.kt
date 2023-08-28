@@ -34,9 +34,13 @@ class KakaoApiClient(
     @Value("\${oauth.kakao.client-id}")
     private lateinit var clientId: String
 
+//    @Value("\${oauth.kakao.redirect_uri}")
+    private val redirectUri: String = "http://localhost:8080/kakao/callback";
+
     override fun oAuthProvider(): OAuthProvider = OAuthProvider.KAKAO
 
     override fun requestAccessToken(params: OAuthLoginParams): String {
+        print("requestAccessToken called")
         val url = "$authUrl/oauth/token"
         val httpHeaders = HttpHeaders().apply {
             contentType = MediaType.APPLICATION_FORM_URLENCODED
@@ -44,6 +48,7 @@ class KakaoApiClient(
         val body = params.makeBody().apply {
             add("grant_type", GRANT_TYPE)
             add("client_id", clientId)
+            add("redirect_uri", redirectUri)
         }
 
         val request = HttpEntity(body, httpHeaders)
@@ -52,6 +57,7 @@ class KakaoApiClient(
     }
 
     override fun requestOauthInfo(accessToken: String): OAuthInfoResponse {
+        print("requestOauthInfo called")
         val url = "$apiUrl/v2/user/me"
         val httpHeaders = HttpHeaders().apply {
             contentType = MediaType.APPLICATION_FORM_URLENCODED

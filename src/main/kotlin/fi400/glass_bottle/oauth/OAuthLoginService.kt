@@ -27,7 +27,7 @@ class OAuthLoginService(
     private fun newMember(oAuthInfoResponse: OAuthInfoResponse): Long {
         val user = User(
             email = oAuthInfoResponse.email,
-            name = oAuthInfoResponse.name,
+            nickname = oAuthInfoResponse.nickname,
             oAuthProvider = oAuthInfoResponse.oAuthProvider
         )
         return userRepository.save(user).id ?: throw IllegalStateException("User ID cannot be null.")
