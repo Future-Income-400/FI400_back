@@ -26,6 +26,10 @@ data class Letter(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id : Long,
 
+    @Id
+    @Column(name = "input_id")
+    var inputId : String,
+
     @Column
     var content : String,
 
