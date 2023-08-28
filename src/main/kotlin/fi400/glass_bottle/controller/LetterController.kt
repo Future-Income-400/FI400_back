@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/letter")
-class LetterController {
-    val letterService = LetterService()
-
+class LetterController(private val letterService: LetterService) {
     @GetMapping("/my-letter")
     fun getAllLetter(@RequestParam id: Long): ResponseEntity<Letter> {
         return letterService.getLetter(id)

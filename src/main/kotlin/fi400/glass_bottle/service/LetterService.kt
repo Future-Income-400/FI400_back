@@ -21,9 +21,7 @@ import kotlin.jvm.optionals.getOrNull
 
 @Service
 @RequiredArgsConstructor
-class LetterService {
-    private lateinit var userRepository: UserRepository
-    private lateinit var letterRepository: LetterRepository
+class LetterService(private val userRepository: UserRepository, private val letterRepository: LetterRepository) {
     /**
      * id로 특정 Letter 가져오는 메소드
      * return Optional<Letter>
@@ -32,9 +30,9 @@ class LetterService {
         var responseCode = HttpStatus.BAD_REQUEST
         var result: Letter? = null
         try {
-            result = letterRepository.findById(id).getOrNull()
+            result = letterRepository.findById(id).let { it.get() } ?: Letter()
             responseCode = HttpStatus.OK
-        } catch (e: DataException) {
+        } catch (e: Exception) {
             print(e)
         }
         return ResponseEntity(result, responseCode)
