@@ -34,13 +34,9 @@ class LetterController {
         return ResponseEntity.ok(userRepository.findById(id).getOrNull())
     }
 
-    @PostMapping
+    @PostMapping()
     fun saveLetter(@RequestParam letter: Letter): ResponseEntity<Letter> {
         return ResponseEntity.ok(letterRepository.save(letter))
     }
 
-    @PostMapping()
-    fun getTest(): List<User> {
-        return userRepository.findAll()
-    }
 }
