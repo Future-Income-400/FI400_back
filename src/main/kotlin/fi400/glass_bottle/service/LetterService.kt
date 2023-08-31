@@ -7,6 +7,7 @@ import fi400.glass_bottle.repository.LetterRepository
 import fi400.glass_bottle.repository.UserRepository
 import lombok.RequiredArgsConstructor
 import org.apache.coyote.Response
+import org.hibernate.exception.DataException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.http.HttpStatus
@@ -14,20 +15,27 @@ import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import java.util.Optional
+import kotlin.jvm.optionals.getOrDefault
 import kotlin.jvm.optionals.getOrElse
 import kotlin.jvm.optionals.getOrNull
 
 @Service
 @RequiredArgsConstructor
-class LetterService {
-    private lateinit var userRepository: UserRepository
-    private lateinit var letterRepository: LetterRepository
+class LetterService(private val userRepository: UserRepository, private val letterRepository: LetterRepository) {
     /**
      * id로 특정 Letter 가져오는 메소드
      * return Optional<Letter>
      */
-    fun getLetter(id: Long): Optional<Letter> {
-        return letterRepository.findById(id)
+    fun getLetter(id: Long): ResponseEntity<Letter> {
+        var responseCode = HttpStatus.BAD_REQUEST
+        var result: Letter? = null
+        try {
+            result = letterRepository.findById(id).let { it.get() } ?: Letter()
+            responseCode = HttpStatus.OK
+        } catch (e: Exception) {
+            print(e)
+        }
+        return ResponseEntity(result, responseCode)
     }
 
     /**

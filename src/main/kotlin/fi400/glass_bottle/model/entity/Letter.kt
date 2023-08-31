@@ -38,9 +38,11 @@ data class Letter(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    var user: User,
+    var user: User?,
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
     val createdDate: LocalDateTime = LocalDateTime.now(),
-)
+) {
+    constructor() : this(0, "", "", LetterStatus.SENDING, null, LocalDateTime.now())
+}
