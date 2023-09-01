@@ -1,6 +1,7 @@
 package fi400.glass_bottle.model.entity
 
 import jakarta.persistence.*
+import lombok.Builder.Default
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDateTime
@@ -36,6 +37,9 @@ data class Letter(
     @Enumerated(EnumType.STRING)
     var letterStatus : LetterStatus,
 
+    @Column(name="is_activated", columnDefinition = "CHAR(1) DEFAULT 'Y'")
+    var isActivated : Char,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     var user: User?,
@@ -44,5 +48,5 @@ data class Letter(
     @Column(nullable = false, updatable = false)
     val createdDate: LocalDateTime = LocalDateTime.now(),
 ) {
-    constructor() : this(0, "", "", LetterStatus.SENDING, null, LocalDateTime.now())
+    constructor() : this(0, "", "", LetterStatus.SENDING, 'Y',null, LocalDateTime.now())
 }
