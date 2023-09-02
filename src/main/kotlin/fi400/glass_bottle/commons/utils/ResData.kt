@@ -14,7 +14,7 @@ package fi400.glass_bottle.commons.utils
  *             .data(item)
  *             .build()
  */
-class Res(
+class ResData(
     val status: Int,
     val message: String,
     val data: Any? = null
@@ -28,6 +28,6 @@ class Res(
         fun message(message: String) = apply { this.message = message }
         fun data(data: Any?) = apply { this.data = data }
 
-        fun build() = Res(status, message, data)
+        fun build() = ResData(status, message, data)
     }
 }

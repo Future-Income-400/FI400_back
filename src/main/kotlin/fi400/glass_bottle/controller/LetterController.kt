@@ -1,13 +1,10 @@
 package fi400.glass_bottle.controller
 
-import fi400.glass_bottle.commons.utils.Res
+import fi400.glass_bottle.commons.utils.ResData
 import fi400.glass_bottle.commons.utils.logger
 import fi400.glass_bottle.model.entity.Letter
-import fi400.glass_bottle.repository.LetterRepository
 import fi400.glass_bottle.service.LetterService
 import lombok.RequiredArgsConstructor
-import org.springframework.http.HttpCookie
-import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -30,9 +27,9 @@ class LetterController(private val letterService: LetterService) {
      * @return response
      */
     @GetMapping
-    fun getLetterById(@RequestParam letterId: Long): ResponseEntity<Res> {
+    fun getLetterById(@RequestParam letterId: Long): ResponseEntity<ResData> {
 //        token = HttpCookie get().decode
-        val response = Res.Builder()
+        val response = ResData.Builder()
         val letter: Letter?
 
         try {
@@ -53,9 +50,9 @@ class LetterController(private val letterService: LetterService) {
      * @return response
      */
     @PostMapping
-    fun draftLetter(@RequestBody letter: Letter): ResponseEntity<Res> {
+    fun draftLetter(@RequestBody letter: Letter): ResponseEntity<ResData> {
 
-        val response = Res.Builder()
+        val response = ResData.Builder()
 
         try {
             letterService.draftLetter(letter)
@@ -80,9 +77,9 @@ class LetterController(private val letterService: LetterService) {
      * @return response
      */
     @PutMapping
-    fun reviseLetter(@RequestBody letter: Letter): ResponseEntity<Res> {
+    fun reviseLetter(@RequestBody letter: Letter): ResponseEntity<ResData> {
 
-        val response = Res.Builder()
+        val response = ResData.Builder()
 
         return try {
             letterService.draftLetter(letter) // JPA Dirty Check
@@ -102,9 +99,9 @@ class LetterController(private val letterService: LetterService) {
      * @return response
      */
     @DeleteMapping
-    fun removeLetter(@RequestBody letter: Letter): ResponseEntity<Res> {
+    fun removeLetter(@RequestBody letter: Letter): ResponseEntity<ResData> {
 
-        val response = Res.Builder()
+        val response = ResData.Builder()
         letter.isActivated = 'N'
 
         try {

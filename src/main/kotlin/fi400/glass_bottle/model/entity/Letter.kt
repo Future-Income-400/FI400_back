@@ -48,5 +48,5 @@ data class Letter(
     @Column(nullable = false, updatable = false)
     val createdDate: LocalDateTime = LocalDateTime.now(),
 ) {
-    constructor() : this(0, "", "", LetterStatus.SENDING, 'Y',null, LocalDateTime.now())
+    constructor() : this(0, "", "", LetterStatus.SENDING, 'Y', null, LocalDateTime.now())
 }
