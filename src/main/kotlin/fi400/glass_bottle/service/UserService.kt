@@ -61,7 +61,6 @@ class UserService(private val userRepository: UserRepository,
      */
     fun draftUser(user: User): String {
         return "나가 시발로마 개새끼야 오팬무 쳐 잘보고 시발!!!!!!!! 나도 간다 !!! 오팬무 본다 !!!" +
-                "good night"
+                "good night" + "ㅎㅏ 시발 개졸려 걍 잔다 우진씨 시말서 써오세요"
     }
-
 }
