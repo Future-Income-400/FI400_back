@@ -47,6 +47,9 @@ data class User(
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
     var letterList: MutableList<Letter>? = mutableListOf(),
 
+    @Column(name="is_deleted", columnDefinition = "CHAR(1) DEFAULT 'Y'")
+    var isDeleted : Char,
+
     @CreatedDate
     @Column(nullable = false, updatable = false)
     var createdDate: LocalDateTime = LocalDateTime.now(),

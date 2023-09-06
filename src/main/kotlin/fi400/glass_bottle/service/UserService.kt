@@ -39,29 +39,32 @@ class UserService(private val userRepository: UserRepository,
      */
     fun getLettersByUserId(userId: Long, letterStatus: String): List<Letter>? {
         val user = userRepository.findById(userId).orElseThrow { NullPointerException("Can not found By Id: $userId") }
+        var letterList: List<Letter>
 
+        // letterStatus가 null 값일 때에는 모든 상태 리턴
         if (ObjectUtils.isEmpty(letterStatus)) {
             return user.letterList
         }
 
-        return try {
-             user.letterList?.filter {
+        // 특정 letterStatus 일때 처리
+        try {
+            letterList = user.letterList.orEmpty().filter {
                 it.letterStatus == LetterStatus.valueOf(letterStatus.uppercase())
             }
         } catch (e: IllegalArgumentException) {
             throw IllegalArgumentException("Invalid letter status: ${letterStatus}")
         }
+
+        return letterList
     }
 
     /**
      * CREATE, UPDATE, DELETE
-     * 유저 저장, 수정, 삭제
+     * 유저 수정
      * @param user
      * @return message: 상태 메시지
      */
-    fun draftUser(user: User): String {
-        return "나가 시발로마 개새끼야 오팬무 쳐 잘보고 시발!!!!!!!! 나도 간다 !!! 오팬무 본다 !!!" +
-                "good night"
+    fun updateUser(user: User) {
+        userRepository.save(user)
     }
-
 }

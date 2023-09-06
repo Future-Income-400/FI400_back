@@ -11,10 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
+/**
+ * 유저 관련 API 호출하는 컨트롤러
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -29,7 +34,8 @@ class UserController @Autowired constructor(private val userService: UserService
      * @return response
      */
     @GetMapping
-    fun getLetterById(@RequestParam userId: Long, @RequestParam letterStatus: String = ""): ResponseEntity<ResData> {
+    fun getLetterListByUserId(@RequestParam userId: Long, @RequestParam letterStatus: String = ""): ResponseEntity<Any> {
+//        val token = HttpCookie .get decode
         val response = ResData.Builder()
         val letterList: List<Letter>?
 
@@ -43,7 +49,67 @@ class UserController @Autowired constructor(private val userService: UserService
 
         return ResponseEntity.ok(response.build())
     }
-    @PostMapping("/saveUser")
-    fun save(@RequestParam id: Long) {
+
+    /**
+     * 객체를 받아서 생성하는 API
+     * @param User 생성할 유저 객체
+     * @return response
+     */
+    @PostMapping
+    fun createUser(@RequestBody user: User): ResponseEntity<Any> {
+        val response = ResData.Builder()
+
+        try {
+            userService.updateUser(user)
+            response.data(user).status(200).message("Successfully create user")
+        } catch (e: Exception) {
+            log.error("$e")
+            response.status(500).message("Save user fail: ${e.message}")
+        }
+
+        return ResponseEntity.ok(response.build())
     }
+
+    /**
+     * user 객체를 받아서 저장하는 API
+     * @param user 저장 하고 싶은 유저 객체
+     * @return response
+     */
+    @PutMapping
+    fun updateUser(@RequestBody user: User): ResponseEntity<Any> {
+        val response = ResData.Builder()
+
+        try {
+            userService.updateUser(user)
+            response.data(user).status(200).message("Successfully update user")
+        } catch (e: Exception) {
+            log.error("$e")
+            response.status(500).message("Save user fail: ${e.message}")
+        }
+
+        return ResponseEntity.ok(response)
+    }
+
+    /**
+     * user id를 받아서 삭제
+     * @param user 저장 하고 싶은 유저 객체
+     * @return response
+     */
+    @DeleteMapping
+    fun deleteUser(@RequestBody user: User): ResponseEntity<Any> {
+        val response = ResData.Builder()
+        user.isDeleted = 'Y'
+
+        try {
+            userService.updateUser(user)
+            response.data(user).status(200).message("Successfully delete user")
+        } catch (e: Exception) {
+            log.error("$e")
+            response.status(500).message("Save user fail: ${e.message}")
+        }
+
+        return ResponseEntity.ok(response)
+    }
+
+
 }
