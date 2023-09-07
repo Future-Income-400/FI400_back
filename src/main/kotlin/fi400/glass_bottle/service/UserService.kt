@@ -64,13 +64,7 @@ class UserService(private val userRepository: UserRepository,
      * @param user
      * @return message: 상태 메시지
      */
-<<<<<<< HEAD
     fun updateUser(user: User) {
         userRepository.save(user)
-=======
-    fun draftUser(user: User): String {
-        return "나가 시발로마 개새끼야 오팬무 쳐 잘보고 시발!!!!!!!! 나도 간다 !!! 오팬무 본다 !!!" +
-                "good night" + "ㅎㅏ 시발 개졸려 걍 잔다 우진씨 시말서 써오세요"
->>>>>>> ef069c91ed480485622b3229054c2950d9cfb99d
     }
 }
