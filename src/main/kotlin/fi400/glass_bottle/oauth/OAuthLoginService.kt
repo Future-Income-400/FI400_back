@@ -28,6 +28,7 @@ class OAuthLoginService(
         val user = User(
             email = oAuthInfoResponse.email,
             nickname = oAuthInfoResponse.nickname,
+            isActivated = 'Y',
             oAuthProvider = oAuthInfoResponse.oAuthProvider
         )
         return userRepository.save(user).id ?: throw IllegalStateException("User ID cannot be null.")

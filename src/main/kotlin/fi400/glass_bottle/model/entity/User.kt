@@ -48,7 +48,7 @@ data class User(
     var letterList: MutableList<Letter>? = mutableListOf(),
 
     @Column(name="is_deleted", columnDefinition = "CHAR(1) DEFAULT 'Y'")
-    var isDeleted : Char,
+    var isActivated : Char,
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
