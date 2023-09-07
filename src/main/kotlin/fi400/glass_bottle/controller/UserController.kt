@@ -3,8 +3,6 @@ package fi400.glass_bottle.controller
 import fi400.glass_bottle.commons.utils.ResData
 import fi400.glass_bottle.commons.utils.logger
 import fi400.glass_bottle.model.entity.Letter
-import fi400.glass_bottle.model.entity.User
-import fi400.glass_bottle.repository.UserRepository
 import fi400.glass_bottle.service.UserService
 import lombok.RequiredArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
