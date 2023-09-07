@@ -3,17 +3,12 @@ package fi400.glass_bottle.controller
 import fi400.glass_bottle.commons.utils.ResData
 import fi400.glass_bottle.commons.utils.logger
 import fi400.glass_bottle.model.entity.Letter
+import fi400.glass_bottle.model.entity.User
 import fi400.glass_bottle.service.UserService
 import lombok.RequiredArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /**
  * 유저 관련 API 호출하는 컨트롤러
