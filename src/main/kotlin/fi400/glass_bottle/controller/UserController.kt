@@ -91,7 +91,7 @@ class UserController @Autowired constructor(private val userService: UserService
     @DeleteMapping
     fun deleteUser(@RequestBody user: User): ResponseEntity<Any> {
         val response = ResData.Builder()
-        user.isDeleted = 'Y'
+        user.isActivated = 'N'
 
         try {
             userService.updateUser(user)
