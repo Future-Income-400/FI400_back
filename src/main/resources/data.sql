@@ -1,0 +1,45 @@
+-- tbl_user Dummy Data (10 entries)
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (15, NOW(), 'user1@email.com', 'User1', 'KAKAO', 'password1');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (27, NOW(), 'user2@email.com', 'User2', 'KAKAO', 'password2');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (33, NOW(), 'user3@email.com', 'User3', 'KAKAO', 'password3');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (42, NOW(), 'user4@email.com', 'User4', 'KAKAO', 'password4');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (51, NOW(), 'user5@email.com', 'User5', 'KAKAO', 'password5');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (62, NOW(), 'user6@email.com', 'User6', 'KAKAO', 'password6');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (73, NOW(), 'user7@email.com', 'User7', 'KAKAO', 'password7');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (28, NOW(), 'user8@email.com', 'User8', 'KAKAO', 'password8');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (94, NOW(), 'user9@email.com', 'User9', 'KAKAO', 'password9');
+INSERT INTO tbl_user (bottle_cnt, created_date, email, nickname, oauth_provider, password) VALUES (20, NOW(), 'user10@email.com', 'User10', 'KAKAO', 'password10');
+
+-- tbl_letter Dummy Data (10 entries)
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 1, 'Content 1', 'Summary 1', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 1, 'Content 2', 'Summary 2', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 1, 'Content 3', 'Summary 3', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 2, 'Content 4', 'Summary 4', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 2, 'Content 5', 'Summary 5', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 2, 'Content 6', 'Summary 6', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 3, 'Content 7', 'Summary 7', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 3, 'Content 8', 'Summary 8', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 5, 'Content 9', 'Summary 9', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 5, 'Content 10', 'Summary 10', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 5, 'Content 11', 'Summary 11', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 6, 'Content 12', 'Summary 12', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 7, 'Content 13', 'Summary 13', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 8, 'Content 14', 'Summary 14', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 9, 'Content 15', 'Summary 15', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 10, 'Content 16', 'Summary 16', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 10, 'Content 17', 'Summary 17', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 10, 'Content 18', 'Summary 18', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 1, 'Content 19', 'Summary 19', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 1, 'Content 20', 'Summary 20', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 2, 'Content 21', 'Summary 21', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 2, 'Content 22', 'Summary 22', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 3, 'Content 23', 'Summary 23', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 4, 'Content 24', 'Summary 24', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 4, 'Content 25', 'Summary 25', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 5, 'Content 26', 'Summary 26', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('N', NOW(), 2, 'Content 21', 'Summary 21', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 2, 'Content 22', 'Summary 22', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 3, 'Content 23', 'Summary 23', 'SEND');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 4, 'Content 24', 'Summary 24', 'RECEIVE');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 4, 'Content 25', 'Summary 25', 'SENDING');
+INSERT INTO tbl_letter (is_activated, created_date, user_id, content, content_summary, letter_status) VALUES ('Y', NOW(), 5, 'Content 26', 'Summary 26', 'SEND');
