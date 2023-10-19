@@ -1,5 +1,6 @@
 package fi400.glass_bottle.model.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.*
 import lombok.Builder.Default
 import org.springframework.data.annotation.CreatedDate
@@ -42,6 +43,7 @@ data class Letter(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     var user: User?,
 
     @CreatedDate

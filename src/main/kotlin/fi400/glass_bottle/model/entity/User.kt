@@ -1,5 +1,6 @@
 package fi400.glass_bottle.model.entity
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import fi400.glass_bottle.oauth.OAuthProvider
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
@@ -45,6 +46,7 @@ data class User(
     var oAuthProvider: OAuthProvider,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @JsonManagedReference
     var letterList: MutableList<Letter>? = mutableListOf(),
 
     @Column(name="is_deleted", columnDefinition = "CHAR(1) DEFAULT 'Y'")
